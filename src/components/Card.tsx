@@ -21,6 +21,7 @@ const Card: FC<CardProps> =
         onClick
     }) => {
 
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const [state, setState] = useState(0);
 
         return (

@@ -5,6 +5,7 @@ import axios from "axios";
 import List from "./components/List";
 import User from "./components/User";
 import TodoItem from "./components/TodoItem";
+import EventsExample from "./components/EventsExample";
 
 function App() {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -35,13 +36,14 @@ function App() {
 
   return (
     <div>
+      <EventsExample />
       <Card
         variant={CardVariant.primary}
         width="200px"
         height="200px"
         onClick={(num) => { console.log('num ' + num) }}
       >
-        <button>К��опка</button>
+        <button>Карточная кнопка</button>
       </Card>
 
       <List

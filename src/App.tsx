@@ -43,7 +43,7 @@ function App() {
         height="200px"
         onClick={(num) => { console.log('num ' + num) }}
       >
-        <button>Карточная кнопка</button>
+        <button>Карточная кнопка </button>
       </Card>
 
       <List

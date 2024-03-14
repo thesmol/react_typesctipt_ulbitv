@@ -1,15 +1,17 @@
-import { ChangeEvent, DragEvent, FC, MouseEvent, useState } from "react";
+import { ChangeEvent, DragEvent, FC, MouseEvent, useRef, useState } from "react";
 
 const EventsExample: FC = () => {
     const [value, setValue] = useState<string>("");
     const [isDrag, setIsDrag] = useState<boolean>(false);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value);
     }
 
     const clickHandler = (e: MouseEvent<HTMLButtonElement>) => {
-        console.log(value);
+        console.log("Управляемый: " + value);
+        console.log("Неуправляемый: " + inputRef.current?.value) ;
     }
 
     const dragHadler = (e: DragEvent<HTMLDivElement>) => {
@@ -34,7 +36,8 @@ const EventsExample: FC = () => {
 
     return (
         <div>
-            <input type="text" value={value} onChange={changeHandler} />
+            <input type="text" ref = {inputRef} placeholder="Неуправляемый инпут"/>
+            <input type="text" value={value} onChange={changeHandler} placeholder="Управляемый инпут"/>
             <button onClick={clickHandler}>Кнопка</button>
 
             <div
